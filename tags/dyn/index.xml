@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dyn on </title>
+    <link>https://haim-ari.github.io/tags/dyn/</link>
+    <description>Recent content in Dyn on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 May 2018 00:23:42 +0300</lastBuildDate>
+    
+	<atom:link href="https://haim-ari.github.io/tags/dyn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automatically Launch AWS Instances With Dyn</title>
+      <link>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</link>
+      <pubDate>Mon, 21 May 2018 00:23:42 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</guid>
+      <description>Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.</description>
+    </item>
+    
+  </channel>
+</rss>

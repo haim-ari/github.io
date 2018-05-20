@@ -20,7 +20,7 @@
     <!-- Font-Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <!-- highlight.js-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
     <!-- Customised CSS -->
     <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -43,7 +43,7 @@
 			<a href="https://haim-ari.github.io/"><h1 class="brand"></h1></a>
 			 <img src="/img/hugo.png" alt="Author Image" class="img-circle headshot center"> 
 			<p class="lead">
-				 DevOps Engineer 
+				 Haim Ari 
 			</p>
 		</div>
 		
@@ -52,10 +52,19 @@
 		
 		
 				<li>
-					<a href="/posts/"> <span>Posts</span></a>
+					<a href="/posts/"> <span>All Posts</span></a>
 				</li>
 				<li>
 					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/categories/devops/"> <span>General DevOps</span></a>
+				</li>
+				<li>
+					<a href="/categories/scripts/"> <span>Scripts</span></a>
+				</li>
+				<li>
+					<a href="/categories/docker/"> <span>Docker</span></a>
 				</li>
 		</li>
 	</ul>
@@ -67,6 +76,8 @@
 	<a href="https://twitter.com/arihaim"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
+	&nbsp;<a href="https://github.com/haim-ari"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
 	
 	
 	
@@ -95,9 +106,30 @@
   
     
       <div class="post">
-        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ci-cd/">Ci Cd</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
-        <span class="post-date">May 20, 2018</span>
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/">Automatically Launch AWS Instances With Dyn</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
+        <span class="post-date">May 21, 2018</span>
+        Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.
         
+        <div class="read-more-link">
+            <a href="/posts/automatically-launch-aws-instances-with-dyn/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/multi-haproxy/">Multi Haproxy</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
+        <span class="post-date">May 21, 2018</span>
+        
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/">ecs ci-cd with gitlab</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
+        <span class="post-date">May 20, 2018</span>
+        Also, notice this part:        Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp; ecs-deploy
+a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.
+        
+        <div class="read-more-link">
+            <a href="/posts/ecs-ci-cd-with-gitlab/">Read More…</a>
+        </div>
         
         </div>
       <div class="post">

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+    
+    <title>ecs ci-cd with gitlab &middot; </title>
+    <meta content="ecs ci-cd with gitlab - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="https://haim-ari.github.io/"><h1 class="brand"></h1></a>
+			 <img src="/img/hugo.png" alt="Author Image" class="img-circle headshot center"> 
+			<p class="lead">
+				 Haim Ari 
+			</p>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/categories/devops/"> <span>General DevOps</span></a>
+				</li>
+				<li>
+					<a href="/categories/scripts/"> <span>Scripts</span></a>
+				</li>
+				<li>
+					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/arihaim"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/haim-ari"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/haimari"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:haimari1@gmail.com"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+		<p class="copyright">&copy; 2018 Haim Ari.
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+	<div>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>ecs ci-cd with gitlab</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> May 20, 2018
+      
+      
+        
+        
+            in
+            
+            
+                <a class="meta" href="/categories/docker">DOCKER</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/ecs">ecs</a> 
+        
+            <a class="meta" href="/tags/gitlab">gitlab</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 5 min read 
+      </span>  
+  </div>    
+  
+  <nav>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#also-notice-this-part">Also, notice this part:</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<p>Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp; ecs-deploy</p>
+
+<p>a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.
+So first i created an ECS-cluster</p>
+
+<p>I’ll focus on the CI/CD process, this means you already have:
+1. ECS cluster running
+2. ALB &amp; Target groups
+3. Task Definition/s
+4. Service/s
+5. code Repository/s (github or any other)
+6. ECR with pull/push permissions set for a gitlab user.</p>
+
+<p>Normally what you want is to ship your code into the services. you also probably want to make sure it runs ok after deployment, and you want to be able to rollback
+You also want to be able to know right away, which commit triggered the deployment so you could quickly review it.</p>
+
+<p>now… there are many ways to do the same thing, and there is also a more complicated configuration which involves multiple environment (Development,Staging,Production) which i don’t show here, i’ll explain the most basic configuration with only a “staging” environment. here is what i came up with:</p>
+
+<ol>
+<li>At first i installed Gitlab EE &amp; Runner on a Docker node. i used persistent storage removed and recreated the container to make sure all data is intact.
+You can read about running gitlab on docker Here:</li>
+</ol>
+
+<pre><code>image: docker:git
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+  - test
+  - rollback
+
+variables:
+  IMAGE_TAG: $CI_PROJECT_NAME:$CI_COMMIT_SHA
+  IMAGE_NAME: &quot;$ECR_REPO/$IMAGE_TAG&quot;
+
+build:
+  stage: build
+  script:
+    # Setup
+    - export AWS_REGION=&quot;us-east-1&quot;
+    - export AWS_ACCESS_KEY_ID=$aws_access_key_id
+    - export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
+    - export REPO=$ECR_REPO
+    - apk update
+    - apk --no-cache add --update curl python python-dev py-pip
+    - pip install awscli --upgrade --user
+    - export PATH=~/.local/bin:/usr/bin/:$PATH
+    # AUTH
+    - CERT=`aws ecr get-login --no-include-email --region ${AWS_REGION}`
+    - ${CERT}
+    # Build
+    - docker build -t ${CI_PROJECT_NAME} .
+    - docker tag $CI_PROJECT_NAME:latest $REPO/$IMAGE_TAG
+    - docker tag $CI_PROJECT_NAME:latest $REPO/${CI_PROJECT_NAME}:latest
+    - docker push $REPO/$IMAGE_TAG
+    - docker push $REPO/${CI_PROJECT_NAME}:latest
+  environment:
+    name: staging
+
+deploy:
+  stage: deploy
+  script:
+    - export AWS_REGION=&quot;us-east-1&quot;
+    - export AWS_ACCESS_KEY_ID=$aws_access_key_id
+    - export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
+    - apk --no-cache add --update python python-dev py-pip
+    - pip install ecs-deploy
+    # Deploy
+    - ecs deploy --region ${AWS_REGION} ${CLUSTER_NAME} ${CI_PROJECT_NAME} --tag ${CI_COMMIT_SHA}
+  environment:
+    name: staging
+
+test:
+  stage: test
+  script:
+    - export AWS_REGION=&quot;us-east-1&quot;
+    - export AWS_ACCESS_KEY_ID=$aws_access_key_id
+    - export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
+    - apk --no-cache add --update curl python python-dev py-pip jq
+    - pip install awscli --upgrade --user
+    - export PATH=~/.local/bin:/usr/bin/:$PATH
+    # Discover the ALB name
+    - ALB=`aws elbv2 describe-load-balancers --region ${AWS_REGION} --names ${CI_PROJECT_NAME} | jq .LoadBalancers[0].DNSName`
+    # Test Keepalive
+    - /usr/bin/curl --fail http://${ALB//'&quot;'}/keepalive
+    # IF Keepalive return 200...
+    # Retrieve &amp; Store this revision as 'last known successful revision' in S3 Bucket
+    - REV=`aws ecs describe-services --region ${AWS_REGION} --cluster ${CLUSTER_NAME} --service ${CI_PROJECT_NAME} |jq -r '.services[0].deployments[0].taskDefinition'`
+    - echo successful revision is ${REV} Storing it in S3 Bucket
+    - echo ${REV} &gt; /${CI_PROJECT_NAME}
+    # sync rev to S3 here
+    - aws s3 cp /${CI_PROJECT_NAME} s3://${REV_BUCKET}
+  environment:
+    name: staging
+
+rollback:
+  stage: rollback
+  script:
+    - export AWS_REGION=&quot;us-east-1&quot;
+    - export AWS_ACCESS_KEY_ID=$aws_access_key_id
+    - export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
+    - apk --no-cache add --update curl python python-dev py-pip
+    - pip install awscli --upgrade --user
+    - export PATH=~/.local/bin:/usr/bin/:$PATH
+    - pip install ecs-deploy
+    - aws s3 cp s3://${REV_BUCKET}/${CI_PROJECT_NAME} ./
+    - REV=`cat ./${CI_PROJECT_NAME}`
+    - echo rev is $REV
+    - ecs deploy --region ${AWS_REGION} ${CLUSTER_NAME} ${CI_PROJECT_NAME} --task ${REV}
+  environment:
+    name: staging
+
+  when: on_failure
+  
+</code></pre>
+
+<ul>
+<li>The reason the same environment variables are set multiple times is because this is required.
+Each Stage runs in it’s own clean container. This is explained here:</li>
+</ul>
+
+<p>#####So what does this pipeline do ?</p>
+
+<p>Each time you commit &amp; push code to your repository, gitlab will detect the changes &amp; trigger the pipeline automatically
+This flow mostly fits a basic “Staging environment”</p>
+
+<ol>
+<li>Start a docker container and build our image.</li>
+<li>Tag &amp; push (twice: with ‘commit SHA’ &amp; ‘latest’ as tags) this build</li>
+<li>Set this image in a new ECS Task Definition based on the ACTIVE one &amp; update your service to use it.
+if deployment completed ok:</li>
+<li>Test the application first, if OK: save this revision ARN name in S3 bucket and you are done.
+If deployment not OK: Rollback.</li>
+</ol>
+
+<p>Notice this part:</p>
+
+<pre><code>  # AUTH
+    - CERT=`aws ecr get-login --no-include-email --region ${AWS_REGION}`
+    - ${CERT}
+    # Build
+    - docker build -t ${CI_PROJECT_NAME} .
+    - docker tag $CI_PROJECT_NAME:latest $REPO/$IMAGE_TAG
+    - docker tag $CI_PROJECT_NAME:latest $REPO/${CI_PROJECT_NAME}:latest
+    - docker push $REPO/$IMAGE_TAG
+    - docker push $REPO/${CI_PROJECT_NAME}:latest
+  environment:
+    name: staging
+</code></pre>
+
+<p>It is very clear why you should try to work with environment variables.
+The above part could fit any of your projects in the future as is.</p>
+
+<p>The deployment to the ECS cluster is done by the command ecs-deploy
+This is a great project on Github which will save you a lot of time, instead of manipulating json files to create new task definition, and then update the service,
+simply invoke the ecs-deploy command which does a great job. it is based on boto3, you can read about it here:</p>
+
+<h6 id="also-notice-this-part">Also, notice this part:</h6>
+
+<pre><code>    - aws s3 cp s3://${REV_BUCKET}/${CI_PROJECT_NAME} ./
+    - REV=`cat ./${CI_PROJECT_NAME}`
+    - echo rev is $REV
+    - ecs deploy --region ${AWS_REGION} ${CLUSTER_NAME} ${CI_PROJECT_NAME} --task ${REV}
+    
+</code></pre>
+
+<p>Since you saved the last ARN of the Task Definition that passed the Test Stage, you can always roll-back to it by invoking:</p>
+
+<pre><code class="language-bash">ecs deploy --region ${AWS_REGION} ${CLUSTER_NAME} ${CI_PROJECT_NAME} --task ${REV}
+</code></pre>
+
+<p>That’s it
+You should end up with a working CI/CD pipeline that will save you a lot of time</p>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>

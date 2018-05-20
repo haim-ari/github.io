@@ -6,18 +6,37 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 May 2018 21:40:29 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 21 May 2018 00:23:42 +0300</lastBuildDate>
     
 	<atom:link href="https://haim-ari.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Ci Cd</title>
-      <link>https://haim-ari.github.io/posts/ci-cd/</link>
+      <title>Automatically Launch AWS Instances With Dyn</title>
+      <link>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</link>
+      <pubDate>Mon, 21 May 2018 00:23:42 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</guid>
+      <description>Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.</description>
+    </item>
+    
+    <item>
+      <title>Multi Haproxy</title>
+      <link>https://haim-ari.github.io/posts/multi-haproxy/</link>
+      <pubDate>Mon, 21 May 2018 00:12:25 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/multi-haproxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ecs ci-cd with gitlab</title>
+      <link>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</link>
       <pubDate>Sun, 20 May 2018 21:40:29 +0300</pubDate>
       
-      <guid>https://haim-ari.github.io/posts/ci-cd/</guid>
-      <description></description>
+      <guid>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</guid>
+      <description>Also, notice this part:        Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp;amp; ecs-deploy
+a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.</description>
     </item>
     
     <item>

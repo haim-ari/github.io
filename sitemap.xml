@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://haim-ari.github.io/posts/ci-cd/</loc>
+    <loc>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</loc>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/posts/multi-haproxy/</loc>
+    <lastmod>2018-05-21T00:12:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</loc>
     <lastmod>2018-05-20T21:40:29+03:00</lastmod>
   </url>
   
@@ -19,7 +29,7 @@
   
   <url>
     <loc>https://haim-ari.github.io/</loc>
-    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -35,37 +45,68 @@
   </url>
   
   <url>
-    <loc>https://haim-ari.github.io/tags/ci/cd/</loc>
-    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://haim-ari.github.io/categories/devops/</loc>
-    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
+    <lastmod>2018-05-21T00:12:25+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://haim-ari.github.io/tags/gitlab/</loc>
-    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://haim-ari.github.io/moods/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://haim-ari.github.io/posts/</loc>
+    <loc>https://haim-ari.github.io/categories/docker/</loc>
     <lastmod>2018-05-20T21:40:29+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://haim-ari.github.io/tags/</loc>
+    <loc>https://haim-ari.github.io/tags/dyn/</loc>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/ecs/</loc>
+    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/gitlab/</loc>
+    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/haproxy/</loc>
+    <lastmod>2018-05-21T00:12:25+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/posts/</loc>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/python/</loc>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/categories/scripts/</loc>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/swarm/</loc>
     <lastmod>2018-05-18T23:25:18+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/</loc>
+    <lastmod>2018-05-21T00:23:42+03:00</lastmod>
     <priority>0</priority>
   </url>
   

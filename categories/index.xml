@@ -13,9 +13,27 @@
     <item>
       <title>Devops</title>
       <link>https://haim-ari.github.io/categories/devops/</link>
-      <pubDate>Fri, 18 May 2018 23:25:18 +0300</pubDate>
+      <pubDate>Mon, 21 May 2018 00:12:25 +0300</pubDate>
       
       <guid>https://haim-ari.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://haim-ari.github.io/categories/docker/</link>
+      <pubDate>Sun, 20 May 2018 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scripts</title>
+      <link>https://haim-ari.github.io/categories/scripts/</link>
+      <pubDate>Mon, 21 May 2018 00:23:42 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/categories/scripts/</guid>
       <description></description>
     </item>
     

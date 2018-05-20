@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ecs on </title>
+    <link>https://haim-ari.github.io/tags/ecs/</link>
+    <description>Recent content in Ecs on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 May 2018 21:40:29 +0300</lastBuildDate>
+    
+	<atom:link href="https://haim-ari.github.io/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ecs ci-cd with gitlab</title>
+      <link>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</link>
+      <pubDate>Sun, 20 May 2018 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</guid>
+      <description>Also, notice this part:        Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp;amp; ecs-deploy
+a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.</description>
+    </item>
+    
+  </channel>
+</rss>

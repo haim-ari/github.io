@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+    
+    <title>Automatically Launch AWS Instances With Dyn &middot; </title>
+    <meta content="Automatically Launch AWS Instances With Dyn - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="https://haim-ari.github.io/"><h1 class="brand"></h1></a>
+			 <img src="/img/hugo.png" alt="Author Image" class="img-circle headshot center"> 
+			<p class="lead">
+				 Haim Ari 
+			</p>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/categories/devops/"> <span>General DevOps</span></a>
+				</li>
+				<li>
+					<a href="/categories/scripts/"> <span>Scripts</span></a>
+				</li>
+				<li>
+					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/arihaim"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/haim-ari"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/haimari"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:haimari1@gmail.com"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+		<p class="copyright">&copy; 2018 Haim Ari.
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+	<div>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Automatically Launch AWS Instances With Dyn</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> May 21, 2018
+      
+      
+        
+        
+            in
+            
+            
+                <a class="meta" href="/categories/scripts">SCRIPTS</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/dyn">dyn</a> 
+        
+            <a class="meta" href="/tags/python">python</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 5 min read 
+      </span>  
+  </div>    
+  
+  <p>Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible.
+I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response.
+Then the script launches X number of instances in AWS as soon as it detects the “Error” status.
+This way you save the time it takes for new instances to start serving at your Auto Scale Group and they will be ready and waiting for traffic to arrive.</p>
+
+<p>I run python script in a zabbix-proxy server (at AWS)
+As explained above this script will check (cron) Dyn FailOver service status and Launch instances the relevant AutoScale Group
+There are 2 cfg files that the scripts checks before launching instances:</p>
+
+<pre><code>/root/service1.cfg
+/root/service2.cfg
+</code></pre>
+
+<p>Both files contain a string “Error/OK”
+After launching instances the script will update the relevant file in order to prevent multiple launches every time it runs
+After DR complete You need to manually restore the strings in the cfg files to: “OK” for the script to work again.</p>
+
+<pre><code class="language-python">#!/usr/bin/python -u
+
+import boto.ec2.autoscale
+import os
+from boto.ec2.autoscale import ScalingPolicy
+import logging
+import re
+from dynect.DynectDNS import DynectRest
+import sys
+import fileinput
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+import ConfigParser
+import json
+import urllib2
+
+__license__ = &quot;GPL&quot;
+__version__ = &quot;1.0.1&quot;
+__status__ = &quot;Production&quot;
+
+# AWS #
+key_id = 'YourKeyHere'
+access_key = 'YourAccessKeyHere'
+ec2_region = 'us-east-1'  # AWS Virginia
+service1_capacity = '10'
+service2_capacity = '6'
+
+# AWS VA  Auto Scale Group1
+asgroup = 'autoscalegroupname1'
+# AWS VA Auto Scale Group2
+apgroup = 'autoscalegroupname2'
+
+# Dyn #
+domain = 'your_dyn_domain_here'
+
+logging.basicConfig(filename='/var/log/Failover.log', level=logging.INFO,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.getLogger(&quot;requests&quot;).setLevel(logging.WARNING)
+
+
+def connaws():
+    &quot;&quot;&quot;Authenticate and connect to AWS API&quot;&quot;&quot;
+    logging.info(&quot;OK: Authenticating with AWS&quot;)
+    conn = boto.ec2.autoscale.connect_to_region(ec2_region, aws_access_key_id=key_id, aws_secret_access_key=access_key)
+    return conn
+
+
+def launchinstances(elb, desired_capacity):
+    &quot;&quot;&quot;
+    This function will launch AWS instances in region us-east-1 (Virginia) at Virginia Auto Scale Groups
+    &quot;&quot;&quot;
+    logging.info(&quot;ALERT: Launching Instances in &quot; + elb)
+    logging.info(&quot;ALERT: Total instances in &quot; + elb + &quot; is set to &quot; + desired_capacity)
+    conn = (connaws())
+    try:
+        conn.set_desired_capacity(elb, desired_capacity, honor_cooldown=False)
+    except boto.exception.BotoServerError, e:
+        #logging.info(&quot;ERROR: Could not Launch instances&quot;)
+        print e
+
+
+def setmininstances(elb, desired_capacity):
+    os.system(&quot;aws --region us-east-1 autoscaling update-auto-scaling-group --auto-scaling-group-name &quot; +
+              elb + &quot; --min-size &quot; + desired_capacity)
+
+
+def get_creds():
+    &quot;&quot;&quot;function to read API credentials from file&quot;&quot;&quot;
+    try:
+        #initialize config parser
+        config = ConfigParser.ConfigParser()
+        config.read('/usr/configs/config.cfg')
+        #stash in dict
+        creds = {
+            'customer_name': config.get('login', 'cn'),
+            'user_name': config.get('login', 'un'),
+            'password': config.get('login', 'pw'),
+        }
+        return creds
+    except:
+        raise
+
+
+def shouldirun(acgroup):
+    logging.info(&quot;ALERT: Checking if should launch instances in &quot; + acgroup)
+    try:
+        # Case Dyn indicates ERROR, Check if Already Launched instances and skip
+        statuses = ConfigParser.ConfigParser()
+        statuses.read('/root/' + acgroup + '.cfg')
+        vals = {
+            'status': statuses.get('status', acgroup),
+        }
+        if vals['status'] != &quot;Error&quot;:
+            logging.info(&quot;ALERT: Should launch instances in &quot; + acgroup)
+            cstatus = &quot;launch&quot;
+            return cstatus
+        else:
+            logging.info(&quot;ALERT: Already launched instances in &quot; + acgroup + &quot; skipping...&quot;)
+
+    except:
+        raise
+
+
+def email(message):
+    &quot;&quot;&quot;This function send email using SMTP &quot;&quot;&quot;
+    msg = MIMEMultipart()
+    msg['From'] = 'zabbix@yourdomain.com'
+    msg['To'] = 'devops@yourdomain.com'
+    msg['Subject'] = 'AutoScale Alert'
+    message = message
+    msg.attach(MIMEText(message))
+    mailserver = smtplib.SMTP('yourmail.server.com', 25)
+    mailserver.ehlo()
+    mailserver.sendmail('zabbix@yourdomain.com', 'devops@yourdomain.com', msg.as_string())
+    mailserver.quit
+
+
+def dynconnect():
+    &quot;&quot;&quot;Connect to Dyn REST API&quot;&quot;&quot;
+    # read API credentials from file
+    try:
+        creds = get_creds()
+    except:
+        sys.exit('Unable to open configuration file: config.cfg')
+
+    dyn_iface = DynectRest()
+
+    # Log in
+
+    response = dyn_iface.execute('/Session/', 'POST', creds,)
+    if response['status'] != 'success':
+        print (&quot;Could not authenticate&quot;)
+        #print response
+        sys.exit(&quot;Unable to Login to DynECT DNS API.  Please check credentials in config.cfg&quot;)
+    else:
+        token = ((response)['data']['token'])
+    return token
+
+
+def checkactivefailover(domain):
+    service1 = 0
+    service2 = 0
+    &quot;&quot;&quot;This function will check all 'Active Failover fqdns' statuses and return true/false&quot;&quot;&quot;
+    token = dynconnect()
+    logging.info(&quot;OK: Authenticated with Dyn API&quot;)
+    req = urllib2.Request('https://api.dynect.net/REST/Failover/' + domain)
+    req.add_header('Auth-Token', token)
+    req.add_header('content-type', 'application/json')
+    req.add_header('detail', 'Y')
+    resp = urllib2.urlopen(req)
+    content = (resp.read())
+    acraw = re.findall(r'/REST/Failover/(.+?)\&quot;', content)
+    for item in acraw:
+        if ' ' in item:
+            pass
+        dsfid = item.strip()
+        reqlabel = urllib2.Request('https://api.dynect.net/REST/Failover/' + dsfid)
+        reqlabel.add_header('Auth-Token', token)
+        reqlabel.add_header('content-type', 'application/json')
+        reqlabel.add_header('detail', 'Y')
+        reqlabels = urllib2.urlopen(reqlabel)
+        labels = (reqlabels.read())
+        json1_data = json.loads(labels)
+        status = json1_data['data']['status']
+        if status != &quot;ok&quot;:  # should check if not ok here
+            if &quot;service1&quot; in dsfid:
+                service1 = 1
+            elif &quot;service2&quot; in dsfid or &quot;search&quot; in dsfid:
+
+                service1 = 1
+            else:
+                service2 = 1
+        else:
+            logging.info(&quot;OK: Service: &quot; + dsfid + &quot; status is OK&quot;)
+
+    return service1, service2
+
+
+def send_email(group):
+    &quot;&quot;&quot;This function send email using SMTP &quot;&quot;&quot;
+    logging.info(&quot;ALERT: Sending Email Alert for group: &quot; + group)
+    msg = MIMEMultipart()
+    msg['From'] = 'zabbix@yourdomain.com'
+    msg['To'] = 'devops@yourdomain.com'
+    msg['Subject'] = 'Active FailOver status changed to ERROR in service: ' + group
+    message = 'Launching instances in AWS Virginia for service:' + group
+    msg.attach(MIMEText(message))
+    mailserver = smtplib.SMTP('yourmail.server.com', 25)
+    mailserver.ehlo()
+    mailserver.sendmail('zabbix@yourdomain.com', 'devops@yourdomain.com', msg.as_string())
+    mailserver.quit()
+
+
+def updatestatuses(group):
+    for line in fileinput.FileInput(&quot;/usr/local/configs/&quot; + group + &quot;.cfg&quot;, inplace=1):
+        line = line.replace(&quot;OK&quot;, &quot;Error&quot;)
+        print line
+    logging.info(&quot;ALERT: Updating &quot; + group + &quot;.cfg file&quot;)
+    send_email(group)
+
+
+def run():
+    (service1, service2) = checkactivefailover(domain=domain)
+    if service1 != 0:
+        service1 = shouldirun(acgroup=&quot;service1&quot;)
+        if service1 == &quot;launch&quot;:
+            launchinstances(elb=asgroup, desired_capacity=search_capacity)
+            setmininstances(elb=asgroup, desired_capacity=search_capacity)
+            updatestatuses(group=&quot;service1&quot;)
+    if service2 != 0:
+        service2 = shouldirun(acgroup=&quot;service2&quot;)
+        if service2 == &quot;launch&quot;:
+            launchinstances(elb=apgroup, desired_capacity=adplatform_capacity)
+            setmininstances(elb=apgroup, desired_capacity=adplatform_capacity)
+            updatestatuses(group=&quot;service2&quot;)
+
+run()
+</code></pre>
+
+<blockquote>
+<p>Dyn allows you to migrate your traffic automatically. combined with AWS Auto Scaling, you have an Automatic DR function.</p>
+</blockquote>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>
