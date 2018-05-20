@@ -1,0 +1,54 @@
+## Basic Configuration
+baseurl = "https://haim-ari.github.io/"
+#baseurl = "http://localhost/"
+languageCode = "en"
+# pygmentsUseClasses=true 
+# PygmentsStyle = "monokai"
+publishdir = "haim-ari.github.io"
+theme = "hyde-hyde"
+
+## Hugo Built-in Features
+# disqusShortname = "your-disqus-shortname"
+# googleAnalytics = "your-google-analytics-id"
+# enableRobotsTXT = true
+
+## Site Settings
+
+
+[params]
+    author = "Haim Ari"
+    title = "Haim Ari"
+    description = "DevOps Engineer"
+    authorimage = "/img/hugo.png"
+    dateformat = "Jan 2, 2006"
+    highlightjs = true
+    #highlightjsstyle = "atom-one-dark"
+    highlightjsstyle = "androidstudio"
+    highlightjsTheme = "Darcula"
+    
+    # please choose either GraphComment or Disqus
+    # GraphCommentId = "your-graph-comment-id" 
+
+
+## Social Accounts
+[params.social]
+    #github = "<username>"
+    #instagram = "<username>"
+    #xing = "<username>"
+    linkedin = "haimari"
+    twitter = "arihaim"
+    #facebook = "<username>"
+    #stackoverflow = "<username>"
+    email = "haimari1@gmail.com"
+
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 200
+    url = "/about/"
