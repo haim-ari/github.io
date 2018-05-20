@@ -6,10 +6,28 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 May 2018 17:49:43 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 20 May 2018 21:59:24 +0300</lastBuildDate>
     
 	<atom:link href="https://haim-ari.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Test</title>
+      <link>https://haim-ari.github.io/posts/test/</link>
+      <pubDate>Sun, 20 May 2018 21:59:24 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ci Cd</title>
+      <link>https://haim-ari.github.io/posts/ci-cd/</link>
+      <pubDate>Sun, 20 May 2018 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/ci-cd/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>About</title>
