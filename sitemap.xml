@@ -35,6 +35,29 @@
   </url>
   
   <url>
+    <loc>https://haim-ari.github.io/tags/ci/cd/</loc>
+    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/categories/devops/</loc>
+    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/tags/gitlab/</loc>
+    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/moods/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://haim-ari.github.io/posts/</loc>
     <lastmod>2018-05-20T21:40:29+03:00</lastmod>
     <priority>0</priority>
@@ -42,6 +65,7 @@
   
   <url>
     <loc>https://haim-ari.github.io/tags/</loc>
+    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   

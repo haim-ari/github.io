@@ -10,5 +10,14 @@
 	<atom:link href="https://haim-ari.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Devops</title>
+      <link>https://haim-ari.github.io/categories/devops/</link>
+      <pubDate>Fri, 18 May 2018 23:25:18 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
