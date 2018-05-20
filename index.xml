@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://haim-ari.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 19 May 2018 17:49:43 +0300</lastBuildDate>
+    
+	<atom:link href="https://haim-ari.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://haim-ari.github.io/about/about/</link>
+      <pubDate>Sat, 19 May 2018 17:49:43 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/about/about/</guid>
+      <description> About me </description>
+    </item>
+    
+    <item>
+      <title>Gitlab</title>
+      <link>https://haim-ari.github.io/posts/gitlab/</link>
+      <pubDate>Fri, 18 May 2018 23:25:18 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/gitlab/</guid>
+      <description>This is My Test Page
+#!/bin/bash ###### CONFIG ACCEPTED_HOSTS=&amp;quot;/root/.hag_accepted.conf&amp;quot; BE_VERBOSE=false if [ &amp;quot;$UID&amp;quot; -ne 0 ] then echo &amp;quot;Superuser rights required&amp;quot; exit 2 fi genApacheConf(){ echo -e &amp;quot;# Host ${HOME_DIR}$1/$2 :&amp;quot; }  [ { &amp;quot;title&amp;quot;: &amp;quot;apples&amp;quot;, &amp;quot;count&amp;quot;: [12000, 20000], &amp;quot;description&amp;quot;: {&amp;quot;text&amp;quot;: &amp;quot;...&amp;quot;, &amp;quot;sensitive&amp;quot;: false} }, { &amp;quot;title&amp;quot;: &amp;quot;oranges&amp;quot;, &amp;quot;count&amp;quot;: [17500, null], &amp;quot;description&amp;quot;: {&amp;quot;text&amp;quot;: &amp;quot;...&amp;quot;, &amp;quot;sensitive&amp;quot;: false} } ]  string_1: &amp;quot;Bar&amp;quot; string_2: &#39;bar&#39; string_3: bar  from something import something test = &amp;quot;1&amp;quot; def something(): print &amp;quot;OK&amp;quot;  </description>
+    </item>
+    
+  </channel>
+</rss>
