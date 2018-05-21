@@ -102,7 +102,7 @@ Ansible Tower allows you to easily use the same playbooks you created in a UI in
       <pubDate>Wed, 23 Sep 2015 21:40:29 +0300</pubDate>
       
       <guid>https://haim-ari.github.io/posts/masterless-puppet-for-aws-autoscaled-instances/</guid>
-      <description>#####Why i moved to MasterLess Puppet for our AWS autoscaled Groups ? In general this is because having multiple puppet masters is not so fun, especially if you are using Foreman. I don’t want to have another Puppet master in each site and having to sync all the facts between them.
+      <description>Why i moved to MasterLess Puppet for our AWS autoscaled Groups ? In general this is because having multiple puppet masters is not so fun, especially if you are using Foreman. I don’t want to have another Puppet master in each site and having to sync all the facts between them.
 MasterLess puppet has one disadvantage: any host/instance needs to have all modules available on itself. Once you get use to that (it’s a one time configuration) the rest is easy and you are no longer depending on you Puppet master to apply modules.</description>
     </item>
     
