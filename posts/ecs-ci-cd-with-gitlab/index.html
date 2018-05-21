@@ -22,6 +22,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <!-- highlight.js-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <!-- Customised CSS -->
     <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -51,19 +52,19 @@
 		
 		
 				<li>
-					<a href="/posts/"> <span>All Posts</span></a>
+					<a href="/about/about-me"> <span>About</span></a>
 				</li>
 				<li>
-					<a href="/about/"> <span>About</span></a>
-				</li>
-				<li>
-					<a href="/categories/devops/"> <span>General DevOps</span></a>
+					<a href="/categories/devops/"> <span>DevOps</span></a>
 				</li>
 				<li>
 					<a href="/categories/scripts/"> <span>Scripts</span></a>
 				</li>
 				<li>
 					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
 				</li>
 		</li>
 	</ul>
@@ -108,7 +109,7 @@
     <span class="text-left post-date meta">
             
        
-        <i class="fas fa-calendar-alt"></i> May 20, 2018
+        <i class="fas fa-calendar-alt"></i> Oct 1, 2017
       
       
         
@@ -139,26 +140,7 @@
       </span>  
   </div>    
   
-  <nav>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#also-notice-this-part">Also, notice this part:</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+  
 
 <p>Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp; ecs-deploy</p>
 
@@ -178,10 +160,10 @@ You also want to be able to know right away, which commit triggered the deployme
 
 <p>now… there are many ways to do the same thing, and there is also a more complicated configuration which involves multiple environment (Development,Staging,Production) which i don’t show here, i’ll explain the most basic configuration with only a “staging” environment. here is what i came up with:</p>
 
-<ol>
+<ul>
 <li>At first i installed Gitlab EE &amp; Runner on a Docker node. i used persistent storage removed and recreated the container to make sure all data is intact.
 You can read about running gitlab on docker Here:</li>
-</ol>
+</ul>
 
 <pre><code>image: docker:git
 services:
@@ -283,7 +265,7 @@ rollback:
 Each Stage runs in it’s own clean container. This is explained here:</li>
 </ul>
 
-<p>#####So what does this pipeline do ?</p>
+<h5 id="so-what-does-this-pipeline-do">So what does this pipeline do ?</h5>
 
 <p>Each time you commit &amp; push code to your repository, gitlab will detect the changes &amp; trigger the pipeline automatically
 This flow mostly fits a basic “Staging environment”</p>
@@ -319,7 +301,7 @@ The above part could fit any of your projects in the future as is.</p>
 This is a great project on Github which will save you a lot of time, instead of manipulating json files to create new task definition, and then update the service,
 simply invoke the ecs-deploy command which does a great job. it is based on boto3, you can read about it here:</p>
 
-<h6 id="also-notice-this-part">Also, notice this part:</h6>
+<h5 id="also-notice-this-part">Also, notice this part:</h5>
 
 <pre><code>    - aws s3 cp s3://${REV_BUCKET}/${CI_PROJECT_NAME} ./
     - REV=`cat ./${CI_PROJECT_NAME}`
@@ -340,6 +322,11 @@ You should end up with a working CI/CD pipeline that will save you a lot of time
             <div class="footer">
                 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
 <script type="text/javascript">
     hljs.configure({languages: []});
     hljs.initHighlightingOnLoad();

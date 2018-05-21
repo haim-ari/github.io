@@ -13,18 +13,18 @@
   </url>
   
   <url>
-    <loc>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</loc>
-    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://haim-ari.github.io/about/about/</loc>
+    <loc>https://haim-ari.github.io/about/about-me/</loc>
     <lastmod>2018-05-19T17:49:43+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://haim-ari.github.io/posts/gitlab/</loc>
     <lastmod>2018-05-18T23:25:18+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</loc>
+    <lastmod>2017-10-01T21:40:29+03:00</lastmod>
   </url>
   
   <url>
@@ -52,7 +52,7 @@
   
   <url>
     <loc>https://haim-ari.github.io/categories/docker/</loc>
-    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
+    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,13 +64,13 @@
   
   <url>
     <loc>https://haim-ari.github.io/tags/ecs/</loc>
-    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
+    <lastmod>2017-10-01T21:40:29+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://haim-ari.github.io/tags/gitlab/</loc>
-    <lastmod>2018-05-20T21:40:29+03:00</lastmod>
+    <lastmod>2018-05-18T23:25:18+03:00</lastmod>
     <priority>0</priority>
   </url>
   

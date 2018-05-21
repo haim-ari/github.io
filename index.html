@@ -21,6 +21,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <!-- highlight.js-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <!-- Customised CSS -->
     <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -52,19 +53,19 @@
 		
 		
 				<li>
-					<a href="/posts/"> <span>All Posts</span></a>
+					<a href="/about/about-me"> <span>About</span></a>
 				</li>
 				<li>
-					<a href="/about/"> <span>About</span></a>
-				</li>
-				<li>
-					<a href="/categories/devops/"> <span>General DevOps</span></a>
+					<a href="/categories/devops/"> <span>DevOps</span></a>
 				</li>
 				<li>
 					<a href="/categories/scripts/"> <span>Scripts</span></a>
 				</li>
 				<li>
 					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
 				</li>
 		</li>
 	</ul>
@@ -122,21 +123,22 @@
         
         </div>
       <div class="post">
-        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/">ecs ci-cd with gitlab</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
-        <span class="post-date">May 20, 2018</span>
-        Also, notice this part:        Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp; ecs-deploy
-a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.
-        
-        <div class="read-more-link">
-            <a href="/posts/ecs-ci-cd-with-gitlab/">Read More…</a>
-        </div>
-        
-        </div>
-      <div class="post">
         <h1 class="post-title"><a href="https://haim-ari.github.io/posts/gitlab/">Gitlab</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
         <span class="post-date">May 18, 2018</span>
         This is My Test Page
 #!/bin/bash ###### CONFIG ACCEPTED_HOSTS=&quot;/root/.hag_accepted.conf&quot; BE_VERBOSE=false if [ &quot;$UID&quot; -ne 0 ] then echo &quot;Superuser rights required&quot; exit 2 fi genApacheConf(){ echo -e &quot;# Host ${HOME_DIR}$1/$2 :&quot; }  [ { &quot;title&quot;: &quot;apples&quot;, &quot;count&quot;: [12000, 20000], &quot;description&quot;: {&quot;text&quot;: &quot;...&quot;, &quot;sensitive&quot;: false} }, { &quot;title&quot;: &quot;oranges&quot;, &quot;count&quot;: [17500, null], &quot;description&quot;: {&quot;text&quot;: &quot;...&quot;, &quot;sensitive&quot;: false} } ]  string_1: &quot;Bar&quot; string_2: 'bar' string_3: bar  from something import something test = &quot;1&quot; def something(): print &quot;OK&quot;  
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/">ecs ci-cd with gitlab</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
+        <span class="post-date">Oct 1, 2017</span>
+        Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp; ecs-deploy
+a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies. So first i created an ECS-cluster
+I’ll focus on the CI/CD process, this means you already have: 1. ECS cluster running 2.
+        
+        <div class="read-more-link">
+            <a href="/posts/ecs-ci-cd-with-gitlab/">Read More…</a>
+        </div>
         
         </div>
   </div>
