@@ -10,8 +10,8 @@
     
     <meta name="generator" content="Hugo 0.40.3" />
     
-    <title>Swarm &middot; </title>
-    <meta content="Swarm - " property="og:title">
+    <title>Syntax highlighting test page &middot; </title>
+    <meta content="Syntax highlighting test page - " property="og:title">
     <meta content=" - " property="og:description">
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
@@ -22,7 +22,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <!-- highlight.js-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <!-- Customised CSS -->
     <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -33,9 +32,7 @@
     <!-- Icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.png">
-    <!-- RSS -->
-    <link href="https://haim-ari.github.io/tags/swarm/index.xml" rel="alternate" type="application/rss+xml" title="" />
-    <link href="https://haim-ari.github.io/tags/swarm/index.xml" rel="feed" type="application/rss+xml" title="" />
+    
 
 	</head>
     <body>
@@ -54,7 +51,7 @@
 		
 		
 				<li>
-					<a href="/about/about-me"> <span>About</span></a>
+					<a href="/about/about/"> <span>About</span></a>
 				</li>
 				<li>
 					<a href="/categories/devops/"> <span>DevOps</span></a>
@@ -104,20 +101,134 @@
 </div>
 
         <div class="content container">
-            <h1 class="title">Swarm</h1>
-<ul class="posts">
-    <li>
-        <span>
-            <a href="https://haim-ari.github.io/posts/gitlab/">Gitlab</a>
+            <div class="post">
+  <h1>Syntax highlighting test page</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
             
-            <time class="pull-right post-list">May 18, 2018</time>    
+       
+        <i class="fas fa-calendar-alt"></i> May 18, 2018
+      
+      
+        
+        
+            in
             
-        </span>
-    </li>
+            
+                <a class="meta" href="/categories/notes">NOTES</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/hidden">hidden</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 1 min read 
+      </span>  
+  </div>    
+  
+  <p>This is a test page i made in order to see if all
+syntax highlighting works ok:</p>
+
+<ul>
+<li>HTML</li>
+<li>Bash</li>
+<li>Json</li>
+<li>YAML</li>
+<li>Python</li>
 </ul>
 
+<blockquote>
+<p>For YAML to work, i added the following to the configured template, in my case:</p>
+</blockquote>
+
+<pre><code class="language-bash">hyde-hyde/layouts/partials/commenting.html
+</code></pre>
+
+<p>(HTML)</p>
+
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+&lt;/script&gt;
+</code></pre>
+
+<p>(BASH)</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+###### CONFIG
+ACCEPTED_HOSTS=&quot;/root/.hag_accepted.conf&quot;
+BE_VERBOSE=false
+
+if [ &quot;$UID&quot; -ne 0 ]
+then
+ echo &quot;Superuser rights required&quot;
+ exit 2
+fi
+
+genApacheConf(){
+ echo -e &quot;# Host ${HOME_DIR}$1/$2 :&quot;
+}
+</code></pre>
+
+<p>(JSON)</p>
+
+<pre><code class="language-json">[
+  {
+    &quot;title&quot;: &quot;haim&quot;,
+    &quot;count&quot;: [12000, 20000],
+    &quot;description&quot;: {&quot;text&quot;: &quot;...&quot;, &quot;sensitive&quot;: false}
+  },
+  {
+    &quot;title&quot;: &quot;oranges&quot;,
+    &quot;count&quot;: [17500, null],
+    &quot;description&quot;: {&quot;text&quot;: &quot;...&quot;, &quot;sensitive&quot;: false}
+  }
+]
+</code></pre>
+
+<p>(YAML)</p>
+
+<pre><code class="language-yaml">string_1: &quot;Bar&quot;
+string_2: 'bar'
+string_3: bar
+</code></pre>
+
+<p>(PYTHON)</p>
+
+<pre><code class="language-python">from something import something
+test = &quot;1&quot;
+def something():
+    print &quot;OK&quot;
+</code></pre>
+
+</div>
             <div class="footer">
-                
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+
             </div>
         </div>
         

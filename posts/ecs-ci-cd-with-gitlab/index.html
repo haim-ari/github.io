@@ -22,7 +22,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <!-- highlight.js-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <!-- Customised CSS -->
     <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -52,7 +51,7 @@
 		
 		
 				<li>
-					<a href="/about/about-me"> <span>About</span></a>
+					<a href="/about/about/"> <span>About</span></a>
 				</li>
 				<li>
 					<a href="/categories/devops/"> <span>DevOps</span></a>
@@ -165,7 +164,7 @@ You also want to be able to know right away, which commit triggered the deployme
 You can read about running gitlab on docker Here:</li>
 </ul>
 
-<pre><code>image: docker:git
+<pre><code class="language-yaml">image: docker:git
 services:
   - docker:dind
 
@@ -267,6 +266,20 @@ Each Stage runs in it’s own clean container. This is explained here:</li>
 
 <h5 id="so-what-does-this-pipeline-do">So what does this pipeline do ?</h5>
 
+
+<figure>
+    
+        <img src="/img/Screenshot-from-2017-10-04-11-07-28.png" />
+    
+    
+    <figcaption>
+        <h4>gitlab-pipeline</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
 <p>Each time you commit &amp; push code to your repository, gitlab will detect the changes &amp; trigger the pipeline automatically
 This flow mostly fits a basic “Staging environment”</p>
 
@@ -281,7 +294,7 @@ If deployment not OK: Rollback.</li>
 
 <p>Notice this part:</p>
 
-<pre><code>  # AUTH
+<pre><code class="language-yaml">  # AUTH
     - CERT=`aws ecr get-login --no-include-email --region ${AWS_REGION}`
     - ${CERT}
     # Build
@@ -303,7 +316,7 @@ simply invoke the ecs-deploy command which does a great job. it is based on boto
 
 <h5 id="also-notice-this-part">Also, notice this part:</h5>
 
-<pre><code>    - aws s3 cp s3://${REV_BUCKET}/${CI_PROJECT_NAME} ./
+<pre><code class="language-yaml">    - aws s3 cp s3://${REV_BUCKET}/${CI_PROJECT_NAME} ./
     - REV=`cat ./${CI_PROJECT_NAME}`
     - echo rev is $REV
     - ecs deploy --region ${AWS_REGION} ${CLUSTER_NAME} ${CI_PROJECT_NAME} --task ${REV}
