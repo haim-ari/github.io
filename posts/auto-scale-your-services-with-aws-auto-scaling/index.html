@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+    
+    <title>Auto Scale your services with AWS Auto Scaling &middot; </title>
+    <meta content="Auto Scale your services with AWS Auto Scaling - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="https://haim-ari.github.io/"><h1 class="brand"></h1></a>
+			 <img src="/img/hugo.png" alt="Author Image" class="img-circle headshot center"> 
+			<p class="lead">
+				 Haim Ari 
+			</p>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/about/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/categories/devops/"> <span>DevOps</span></a>
+				</li>
+				<li>
+					<a href="/categories/python/"> <span>Python</span></a>
+				</li>
+				<li>
+					<a href="/categories/scripts/"> <span>Scripts</span></a>
+				</li>
+				<li>
+					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/categories/puppet/"> <span>Puppet</span></a>
+				</li>
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/arihaim"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/haim-ari"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/haimari"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:haimari1@gmail.com"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+		<p class="copyright">&copy; 2018 Haim Ari.
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+	<div>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Auto Scale your services with AWS Auto Scaling</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> Sep 29, 2015
+      
+      
+        
+        
+            in
+            
+            
+                <a class="meta" href="/categories/devops">DEVOPS</a>
+                ,
+            
+                <a class="meta" href="/categories/scripts">SCRIPTS</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/autoscale">autoscale</a> 
+        
+            <a class="meta" href="/tags/aws">aws</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 3 min read 
+      </span>  
+  </div>    
+  
+  
+
+<blockquote>
+<p>Auto Scale</p>
+</blockquote>
+
+<p>In this post i’ll describe how i use AWS Auto Scale in our environment.</p>
+
+<p>If you have not read about AWS Auto Scale Group yet, i recommend reading this document</p>
+
+<p>Now that you know what is Auto-Scaling and what are the features and benefits, lets go over it.</p>
+
+<p>In general what Auto-scale means is that instances will launch automatically by the policy you define, and will start serving by adding themselves to your
+Auto Scale Group ELB.
+These instances will serve until they are no longer needed (again your policy and “min” + “desired” will change the number of running instances inside the group)</p>
+
+<p>Here are the steps i took go get an Auto Scale Group up and running:</p>
+
+<ol>
+<li>Create your AutoScale Security Group.</li>
+<li>Create your ELB.</li>
+<li>Create your instance AMI.</li>
+<li>Create your AutoScale Launch Configuration.</li>
+<li>Configure your AutoScale Group.</li>
+</ol>
+
+<p><img src="/img/asgroup.png" alt="AutoScale-Group" /></p>
+
+<p>The above screenshost is the AWS side of Auto-Scaling, however this is not the full picture.
+You also need to configure your instances launch sequence.
+Your instances will have to:</p>
+
+<ol>
+<li>Create a DNS fqdn record and assign to the hostname.</li>
+<li>Register to your monitoring systems (in our Env – Zabbix)</li>
+<li>Register to your configuration management system (Puppet/Chef…) and pull configuration as needed.</li>
+<li>Pull your current production build.</li>
+<li>Start Serving.</li>
+</ol>
+
+<blockquote>
+<p>There is also the termination process in which you want the instance to delete itself from all the above before termination.
+This will keep your systems clean while containing only the currently running instances at all time.</p>
+</blockquote>
+
+<h5 id="set-it-up">Set it up</h5>
+
+<ol>
+<li>I recommend using Git / SVN / BitBucket to hold your Auto-Scale configuration. combined with “User Data” it will allow you to update your boot sequence easily:
+The “User Data” runs only at first launch and will not run again if the instance will reboot.</li>
+</ol>
+
+<blockquote>
+<p>To my opinion AutoScaled instances should not be rebooted. if a reboot required, simply launch new instances replacing the old ones.
+Any fix or change should be outside of your IMG and pulled at launch. if you must, update and create new IMG.</p>
+</blockquote>
+
+<ol>
+<li>Create your AMI: set up one instance that has your application working on it with all dependencies.</li>
+<li>I Pull one script from Git that runs other boot scripts (after pulling them too) and logs the boot process.
+In our environment It also pulls the Puppet modules from Git. this allows to run puppet classes locally.</li>
+<li>Once all dependencies are applied, and your scripts are pulled to the instance, run them to pull your latest build and start serving.</li>
+<li>in your ELB you must configure your “Health check” and instance port, so the ELB could determine if the instance can serve requests and should be in status:
+“In Service”</li>
+</ol>
+
+<h4 id="scripts-and-examples">Scripts and examples</h4>
+
+<h5 id="set-the-hostname-as-the-aws-instance-id-and-update-dns-bind">Set the hostname as the AWS instance id and update DNS (Bind)</h5>
+
+<pre><code class="language-bash">#!/bin/bash
+# Update-Hostname Init script to set the hostname
+# chkconfig: - 84 02
+# description: Init script to set the hostname as the AWS instance id and update DNS (Bind)
+# Source function library.
+. /etc/init.d/functions
+
+/bin/touch /var/lock/subsys/Remove-Hostname
+echo &quot;search yourdomain.com&quot; &gt;&gt;/etc/resolv.conf #
+
+DNS_KEY=/usr/local/ec2/Kupdate_key.+*******.private
+DOMAIN=yourdomain.com
+PREFIX=virginia-web-prefix
+VPC=vpc
+PUB=public
+
+
+#USER_DATA=`/usr/bin/curl -s http://169.254.169.254/latest/user-data`
+# we are using the PUBIP instead if getting 'user-data' here in order to generate the hostname
+
+HOSTNAME=`curl http://169.254.169.254//latest/meta-data/instance-id`
+#set also the hostname to the running instance
+hostname $PREFIX-$VPC-$HOSTNAME.$DOMAIN
+
+PUBIP=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
+cat&lt;&gt; /etc/hosts
+
+/usr/bin/aws ec2 create-tags --resources $HOSTNAME  --tags Key=Name,Value=$PREFIX-$VPC-$HOSTNAME.$DOMAIN
+</code></pre>
+
+<ul>
+<li>To summarize, auto scale is a great service.
+Once the first time setup is done and you will start using it in your production environment
+It will pay off, the bottom line is: using auto scale will for sure save you time once it’s up an running.</li>
+</ul>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/puppet.min.js"></script>
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>

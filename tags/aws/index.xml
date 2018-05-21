@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on </title>
+    <link>https://haim-ari.github.io/tags/aws/</link>
+    <description>Recent content in Aws on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 29 Sep 2015 21:40:29 +0300</lastBuildDate>
+    
+	<atom:link href="https://haim-ari.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Auto Scale your services with AWS Auto Scaling</title>
+      <link>https://haim-ari.github.io/posts/auto-scale-your-services-with-aws-auto-scaling/</link>
+      <pubDate>Tue, 29 Sep 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/auto-scale-your-services-with-aws-auto-scaling/</guid>
+      <description>Auto Scale
+ In this post i’ll describe how i use AWS Auto Scale in our environment.
+If you have not read about AWS Auto Scale Group yet, i recommend reading this document
+Now that you know what is Auto-Scaling and what are the features and benefits, lets go over it.
+In general what Auto-scale means is that instances will launch automatically by the policy you define, and will start serving by adding themselves to your Auto Scale Group ELB.</description>
+    </item>
+    
+    <item>
+      <title>MasterLess Puppet for AWS autoscaled instances</title>
+      <link>https://haim-ari.github.io/posts/masterless-puppet-for-aws-autoscaled-instances/</link>
+      <pubDate>Wed, 23 Sep 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/masterless-puppet-for-aws-autoscaled-instances/</guid>
+      <description>#####Why i moved to MasterLess Puppet for our AWS autoscaled Groups ? In general this is because having multiple puppet masters is not so fun, especially if you are using Foreman. I don’t want to have another Puppet master in each site and having to sync all the facts between them.
+MasterLess puppet has one disadvantage: any host/instance needs to have all modules available on itself. Once you get use to that (it’s a one time configuration) the rest is easy and you are no longer depending on you Puppet master to apply modules.</description>
+    </item>
+    
+  </channel>
+</rss>

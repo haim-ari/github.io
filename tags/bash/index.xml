@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on </title>
+    <link>https://haim-ari.github.io/tags/bash/</link>
+    <description>Recent content in Bash on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 27 Sep 2015 22:44:29 +0300</lastBuildDate>
+    
+	<atom:link href="https://haim-ari.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Remove a host from zabbix using Bash script and Zabbix API</title>
+      <link>https://haim-ari.github.io/posts/remove-a-host-from-zabbix-using-bash-script-and-zabbix-api/</link>
+      <pubDate>Sun, 27 Sep 2015 22:44:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/remove-a-host-from-zabbix-using-bash-script-and-zabbix-api/</guid>
+      <description>If you are using AWS Autoscaling and zabbix as your monitoring server, Here is a simple way to remove a host before it is terminated. simply configure it to run at shutdown (/etc/rcd)
+#!/bin/bash # Remove-Zabbix Init script should run when an AWS instance goes down and remove itself from Zabbix Server # chkconfig: - 84 02 # description: Remove from zabbix # Source function library. . /etc/init.d/functions start() { /bin/touch /var/lock/subsys/Remove-Zabbix } stop() { /etc/init.</description>
+    </item>
+    
+  </channel>
+</rss>

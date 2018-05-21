@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+    
+    <title>Update DNS Records with Dyn API &middot; </title>
+    <meta content="Update DNS Records with Dyn API - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="https://haim-ari.github.io/"><h1 class="brand"></h1></a>
+			 <img src="/img/hugo.png" alt="Author Image" class="img-circle headshot center"> 
+			<p class="lead">
+				 Haim Ari 
+			</p>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/about/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/categories/devops/"> <span>DevOps</span></a>
+				</li>
+				<li>
+					<a href="/categories/python/"> <span>Python</span></a>
+				</li>
+				<li>
+					<a href="/categories/scripts/"> <span>Scripts</span></a>
+				</li>
+				<li>
+					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/categories/puppet/"> <span>Puppet</span></a>
+				</li>
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/arihaim"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/haim-ari"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/haimari"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:haimari1@gmail.com"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+		<p class="copyright">&copy; 2018 Haim Ari.
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+	<div>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Update DNS Records with Dyn API</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> Dec 27, 2015
+      
+      
+        
+        
+            in
+            
+            
+                <a class="meta" href="/categories/dyn">DYN</a>
+                ,
+            
+                <a class="meta" href="/categories/python">PYTHON</a>
+                ,
+            
+                <a class="meta" href="/categories/scripts">SCRIPTS</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/api">api</a> 
+        
+            <a class="meta" href="/tags/dyn">dyn</a> 
+        
+            <a class="meta" href="/tags/python">python</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 4 min read 
+      </span>  
+  </div>    
+  
+  
+
+<h5 id="here-is-a-script-that-should-run-on-an-autoscale-instance-when-it-launches-and-terminates-in-order-to-set-and-remove-hostname-by-the-instance-id">Here is a script that should run on an AutoScale instance when it launches and terminates in order to set and remove hostname by the instance-id.</h5>
+
+<p>This script will:
+1. Update the instance hostname (locally) by instance id
+2. Create Dyn DNS records for public and private IPs, then publish zone
+3. Update the Instance Name in AWS by Instance-id + domain
+4. removes records from Dyn Dns when instance terminates.</p>
+
+<p>Your config.cfg file should look like this:</p>
+
+<pre><code class="language-ini">#API Login Information
+[login]
+cn: your-customer-name-here
+un: api-username-here
+pw: api-user-pass-here
+</code></pre>
+
+<blockquote>
+<p>Notice the modules required for this script to run on AWS Linux instance.
+Make sure your AMI has them pre-installed or [Pull them at launch]</p>
+</blockquote>
+
+<pre><code class="language-python">
+#!/usr/bin/python
+
+from dynect.DynectDNS import DynectRest
+from subprocess import call
+import ConfigParser
+import urllib2
+import httplib2
+import logging
+import json
+import boto
+import sys
+
+http = httplib2.Http()
+http.force_exception_to_status_code = True
+
+__author__ = &quot;Haim Ari&quot;
+__license__ = &quot;GPL&quot;
+__version__ = &quot;0.0.1&quot;
+
+zone = 'yourdomain.com'
+ttl = '360'
+prefix = 'autoscale-prefix'
+vpc = 'vpc'
+pub = 'pub'
+
+aws_access_key_id = 'XXXXXXXXXXXXXXXXXXXX'
+aws_secret_access_key = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
+ec2_region = [&quot;us-east-1&quot;]
+
+logging.basicConfig(filename='/var/log/Update_Dyn.log', level=logging.INFO,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.getLogger(&quot;requests&quot;).setLevel(logging.WARNING)
+
+
+def get_instanceid():
+    instreq = urllib2.Request('http://169.254.169.254/latest/meta-data/instance-id')
+    resp = urllib2.urlopen(instreq)
+    instanceid = resp.read()
+    return instanceid
+
+
+def public_ip():
+    pubipreq = urllib2.Request('http://169.254.169.254/latest/meta-data/public-ipv4')
+    respip = urllib2.urlopen(pubipreq)
+    pubip = respip.read()
+    return pubip
+
+
+def local_ip():
+    localipreq = urllib2.Request('http://169.254.169.254/latest/meta-data/local-ipv4')
+    resplocalip = urllib2.urlopen(localipreq)
+    localip = resplocalip.read()
+    return localip
+
+instanceid = get_instanceid()
+publicip = public_ip()
+localip = local_ip()
+fullpublicname = (prefix + '-' + pub + '-' + instanceid + '.' + zone)
+publicname = (prefix + '-' + pub + '-' + instanceid)
+fullprivatename = (prefix + '-' + vpc + '-' + instanceid + '.' + zone)
+privatename = (prefix + '-' + vpc + '-' + instanceid)
+
+
+def update_resolve():
+    logging.info(&quot;OK: Updating resolv.conf file&quot;)
+    with open(&quot;/etc/resolv.conf&quot;, &quot;a&quot;) as myfile:
+        myfile.write(&quot;search yourdomain.com&quot;)
+        myfile.close()
+
+
+def update_hostname():
+    logging.info(&quot;OK: Updating hosts file&quot;)
+    instanceid = get_instanceid()
+    localip = local_ip()
+    call([&quot;hostname&quot;, fullprivatename])
+    with open(&quot;/etc/hosts&quot;, &quot;a&quot;) as hostfile:
+        hostfile.write(localip + &quot; &quot; + privatename + &quot; &quot; + fullprivatename)
+        hostfile.close()
+
+
+def get_creds():
+    &quot;&quot;&quot;function to read API credentials from file&quot;&quot;&quot;
+    try:
+        # initialize config parser
+        config = ConfigParser.ConfigParser()
+        config.read('/your/path/config.cfg')
+        # stash in dict
+        creds = {
+            'customer_name': config.get('login', 'cn'),
+            'user_name': config.get('login', 'un'),
+            'password': config.get('login', 'pw'),
+        }
+        return creds
+    except:
+        raise
+
+
+def dynconnect():
+    &quot;&quot;&quot;Connect to Dyn REST API&quot;&quot;&quot;
+    # read API credentials from file
+    try:
+        creds = get_creds()
+    except:
+        sys.exit('Unable to open configuration file: config.cfg')
+
+    dyn_iface = DynectRest()
+
+    # Log in
+
+    response = dyn_iface.execute('/Session/', 'POST', creds,)
+    if response['status'] != 'success':
+        print (&quot;Could not authenticate&quot;)
+        # print response
+        sys.exit(&quot;Unable to Login to DynECT DNS API.  Please check credentials in config.cfg&quot;)
+    else:
+        token = ((response)['data']['token'])
+    return token
+
+
+def add_ip_record(type):
+    token = dynconnect()
+    if type == &quot;public&quot;:
+        logging.info(&quot;OK: Adding A Record to Dyn with my public ip&quot;)
+        data = {'rdata':{'address': publicip}, 'ttl': ttl}
+        req = urllib2.Request('https://api2.dynect.net/REST/ARecord/' + zone + '/' + fullpublicname + '/')
+    else:
+        logging.info(&quot;OK: Adding A Record to Dyn with my private ip&quot;)
+        data = {'rdata':{'address': localip}, 'ttl': ttl}
+        req = urllib2.Request('https://api2.dynect.net/REST/ARecord/' + zone + '/' + fullprivatename + '/')
+    data_json = json.dumps(data)
+    req.add_header('Auth-Token', token)
+    req.add_header('content-type', 'application/json')
+    response = urllib2.urlopen(req, data_json, timeout=30)
+    result = response.read()
+    print (result)
+    publish_zone(token)
+
+
+def delete_record(type):
+    token = dynconnect()
+    if type == &quot;public&quot;:
+        logging.info(&quot;OK: Removing A Record from Dyn with my public ip&quot;)
+        delreq = urllib2.Request('https://api.dynect.net/REST/ARecord/' + zone + '/' + fullpublicname)
+    else:
+        logging.info(&quot;OK: Removing A Record from Dyn with my private ip&quot;)
+        delreq = urllib2.Request('https://api.dynect.net/REST/ARecord/' + zone + '/' + fullprivatename)
+    delreq.add_header('Auth-Token', token)
+    delreq.add_header('content-type', 'application/json')
+    delreq.get_method = lambda: 'DELETE'
+    delete = urllib2.urlopen(delreq, timeout=30)
+    print delete.read()
+    publish_zone(token)
+
+
+def publish_zone(token):
+    logging.info(&quot;OK: publishing Zone changes &quot;)
+    pubdata = {'publish':'true'}
+    pubdata_json = json.dumps(pubdata)
+    pubreq = urllib2.Request('https://api.dynect.net/REST/Zone/yourdomain.com/')
+    pubreq.add_header('Auth-Token', token)
+    pubreq.add_header('content-type', 'application/json')
+    pubreq.get_method = lambda: 'PUT'
+    publish = urllib2.urlopen(pubreq, pubdata_json, timeout=30)
+    print publish.read()
+
+
+def update_instance_name():
+    c = boto.connect_ec2(aws_access_key_id, aws_secret_access_key)
+    c.create_tags([instanceid], {&quot;Name&quot;: fullprivatename})
+    logging.info(&quot;OK: Updating my instance name by my instance id&quot;)
+
+
+if sys.argv[1] == &quot;start&quot;:
+    update_hostname()
+    update_instance_name()
+    add_ip_record(type=&quot;public&quot;)
+    add_ip_record(type=&quot;private&quot;)
+elif sys.argv[1] == &quot;stop&quot;:
+    delete_record(type=&quot;public&quot;)
+    delete_record(type=&quot;private&quot;)
+else:
+    print &quot;Error&quot;
+</code></pre>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/puppet.min.js"></script>
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>

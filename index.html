@@ -58,10 +58,16 @@
 					<a href="/categories/devops/"> <span>DevOps</span></a>
 				</li>
 				<li>
+					<a href="/categories/python/"> <span>Python</span></a>
+				</li>
+				<li>
 					<a href="/categories/scripts/"> <span>Scripts</span></a>
 				</li>
 				<li>
 					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/categories/puppet/"> <span>Puppet</span></a>
 				</li>
 				<li>
 					<a href="/posts/"> <span>All Posts</span></a>
@@ -106,23 +112,7 @@
   
     
       <div class="post">
-        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/">Automatically Launch AWS Instances With Dyn</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
-        <span class="post-date">May 21, 2018</span>
-        Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.
-        
-        <div class="read-more-link">
-            <a href="/posts/automatically-launch-aws-instances-with-dyn/">Read More…</a>
-        </div>
-        
-        </div>
-      <div class="post">
-        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/multi-haproxy/">Multi Haproxy</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
-        <span class="post-date">May 21, 2018</span>
-        
-        
-        </div>
-      <div class="post">
-        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/syntax_highlighting/">Syntax highlighting test page</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/syntax_highlighting/">Syntax highlighting test page</a></h1>
         <span class="post-date">May 18, 2018</span>
         This is a test page i made in order to see if all syntax highlighting works ok:
  HTML Bash Json YAML Python   For YAML to work, i added the following to the configured template, in my case:
@@ -136,7 +126,28 @@
         
         </div>
       <div class="post">
-        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/">ecs ci-cd with gitlab</a><sup><i class="fas fa-pen-square fa-xs"></i></sup></h1>
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/">Automatically Launch AWS Instances With Dyn</a></h1>
+        <span class="post-date">Apr 11, 2018</span>
+        Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.
+        
+        <div class="read-more-link">
+            <a href="/posts/automatically-launch-aws-instances-with-dyn/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/using-gitlab-as-your-production-cd/">USING GITLAB AS YOUR PRODUCTION CD</a></h1>
+        <span class="post-date">Feb 25, 2018</span>
+        USING GITLAB AS YOUR PRODUCTION CI / CD SYSTEM ? YES, YOU SHOULD  Gitlab is a complete solution to unify your deployments and create a robust infrastructure tool, to manage your organization environments.
+ This is another take on a previous post i wrote last year, in which i needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.
+        
+        <div class="read-more-link">
+            <a href="/posts/using-gitlab-as-your-production-cd/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/">CI / CD for ECS with gitlab pipelines</a></h1>
         <span class="post-date">Oct 1, 2017</span>
         Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp; ecs-deploy
 a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies. So first i created an ECS-cluster
@@ -144,6 +155,63 @@ I’ll focus on the CI/CD process, this means you already have: 1. ECS cluster r
         
         <div class="read-more-link">
             <a href="/posts/ecs-ci-cd-with-gitlab/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/update-dns-records-with-dyn-api/">Update DNS Records with Dyn API</a></h1>
+        <span class="post-date">Dec 27, 2015</span>
+        Here is a script that should run on an AutoScale instance when it launches and terminates in order to set and remove hostname by the instance-id. This script will: 1. Update the instance hostname (locally) by instance id 2. Create Dyn DNS records for public and private IPs, then publish zone 3. Update the Instance Name in AWS by Instance-id + domain 4. removes records from Dyn Dns when instance terminates.
+        
+        <div class="read-more-link">
+            <a href="/posts/update-dns-records-with-dyn-api/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/auto-scale-your-services-with-aws-auto-scaling/">Auto Scale your services with AWS Auto Scaling</a></h1>
+        <span class="post-date">Sep 29, 2015</span>
+        Auto Scale
+ In this post i’ll describe how i use AWS Auto Scale in our environment.
+If you have not read about AWS Auto Scale Group yet, i recommend reading this document
+Now that you know what is Auto-Scaling and what are the features and benefits, lets go over it.
+In general what Auto-scale means is that instances will launch automatically by the policy you define, and will start serving by adding themselves to your Auto Scale Group ELB.
+        
+        <div class="read-more-link">
+            <a href="/posts/auto-scale-your-services-with-aws-auto-scaling/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/remove-a-host-from-zabbix-using-bash-script-and-zabbix-api/">Remove a host from zabbix using Bash script and Zabbix API</a></h1>
+        <span class="post-date">Sep 27, 2015</span>
+        If you are using AWS Autoscaling and zabbix as your monitoring server, Here is a simple way to remove a host before it is terminated. simply configure it to run at shutdown (/etc/rcd)
+#!/bin/bash # Remove-Zabbix Init script should run when an AWS instance goes down and remove itself from Zabbix Server # chkconfig: - 84 02 # description: Remove from zabbix # Source function library. . /etc/init.d/functions start() { /bin/touch /var/lock/subsys/Remove-Zabbix } stop() { /etc/init.
+        
+        <div class="read-more-link">
+            <a href="/posts/remove-a-host-from-zabbix-using-bash-script-and-zabbix-api/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/ansible-tower-as-your-rolling-deployment-system/">Ansible (Tower) as your rolling deployment system</a></h1>
+        <span class="post-date">Sep 25, 2015</span>
+        Ansible is a great tool to manage your servers. The ability to launch commands at the same time on all or some of your agent-less hosts makes it very powerful. The open source part of Ansible allows you to run any command/task/playbook/role on your hosts by using commands. If you want to create a pipeline there is no such option… that is where Ansible Tower comes in.
+Ansible Tower allows you to easily use the same playbooks you created in a UI interface.
+        
+        <div class="read-more-link">
+            <a href="/posts/ansible-tower-as-your-rolling-deployment-system/">Read More…</a>
+        </div>
+        
+        </div>
+      <div class="post">
+        <h1 class="post-title"><a href="https://haim-ari.github.io/posts/masterless-puppet-for-aws-autoscaled-instances/">MasterLess Puppet for AWS autoscaled instances</a></h1>
+        <span class="post-date">Sep 23, 2015</span>
+        #####Why i moved to MasterLess Puppet for our AWS autoscaled Groups ? In general this is because having multiple puppet masters is not so fun, especially if you are using Foreman. I don’t want to have another Puppet master in each site and having to sync all the facts between them.
+MasterLess puppet has one disadvantage: any host/instance needs to have all modules available on itself. Once you get use to that (it’s a one time configuration) the rest is easy and you are no longer depending on you Puppet master to apply modules.
+        
+        <div class="read-more-link">
+            <a href="/posts/masterless-puppet-for-aws-autoscaled-instances/">Read More…</a>
         </div>
         
         </div>

@@ -6,13 +6,23 @@
     <description>Recent content in Ecs on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Oct 2017 21:40:29 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2018 21:14:29 +0300</lastBuildDate>
     
 	<atom:link href="https://haim-ari.github.io/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ecs ci-cd with gitlab</title>
+      <title>USING GITLAB AS YOUR PRODUCTION CD</title>
+      <link>https://haim-ari.github.io/posts/using-gitlab-as-your-production-cd/</link>
+      <pubDate>Sun, 25 Feb 2018 21:14:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/using-gitlab-as-your-production-cd/</guid>
+      <description>USING GITLAB AS YOUR PRODUCTION CI / CD SYSTEM ? YES, YOU SHOULD  Gitlab is a complete solution to unify your deployments and create a robust infrastructure tool, to manage your organization environments.
+ This is another take on a previous post i wrote last year, in which i needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.</description>
+    </item>
+    
+    <item>
+      <title>CI / CD for ECS with gitlab pipelines</title>
       <link>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</link>
       <pubDate>Sun, 01 Oct 2017 21:40:29 +0300</pubDate>
       

@@ -10,8 +10,8 @@
     
     <meta name="generator" content="Hugo 0.40.3" />
     
-    <title>About &middot; </title>
-    <meta content="About - " property="og:title">
+    <title>Remove a host from zabbix using Bash script and Zabbix API &middot; </title>
+    <meta content="Remove a host from zabbix using Bash script and Zabbix API - " property="og:title">
     <meta content=" - " property="og:description">
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
@@ -57,10 +57,16 @@
 					<a href="/categories/devops/"> <span>DevOps</span></a>
 				</li>
 				<li>
+					<a href="/categories/python/"> <span>Python</span></a>
+				</li>
+				<li>
 					<a href="/categories/scripts/"> <span>Scripts</span></a>
 				</li>
 				<li>
 					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/categories/puppet/"> <span>Puppet</span></a>
 				</li>
 				<li>
 					<a href="/posts/"> <span>All Posts</span></a>
@@ -102,15 +108,39 @@
 
         <div class="content container">
             <div class="post">
-  <h1>About</h1>
+  <h1>Remove a host from zabbix using Bash script and Zabbix API</h1>
   
   <div class="col-sm-12 col-md-12">
     <span class="text-left post-date meta">
             
        
-        <i class="fas fa-calendar-alt"></i> May 19, 2018
+        <i class="fas fa-calendar-alt"></i> Sep 27, 2015
       
       
+        
+        
+            in
+            
+            
+                <a class="meta" href="/categories/devops">DEVOPS</a>
+                ,
+            
+                <a class="meta" href="/categories/scripts">SCRIPTS</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/bash">bash</a> 
+        
+            <a class="meta" href="/tags/zabbix">zabbix</a>
+        
       
       
       <br/>
@@ -118,7 +148,74 @@
       </span>  
   </div>    
   
-  <p>In progress&hellip;</p>
+  <p>If you are using AWS Autoscaling and zabbix as your monitoring server,
+Here is a simple way to remove a host before it is terminated.
+simply configure it to run at shutdown (/etc/rcd)</p>
+
+<pre><code class="language-bash">#!/bin/bash
+# Remove-Zabbix Init script should run when an AWS instance goes down and remove itself from Zabbix Server
+# chkconfig: - 84 02
+# description: Remove from zabbix
+# Source function library.
+. /etc/init.d/functions
+
+start() {
+/bin/touch /var/lock/subsys/Remove-Zabbix
+}
+
+stop() {
+        /etc/init.d/zabbix-agent stop
+        /bin/rm -f /var/lock/subsys/Remove-Zabbix
+        HOST_NAME=`echo $(hostname)`
+
+        USER='Your_Api_User' 
+        PASS='Zabbix_Password' 
+        ZABBIX_SERVER='zabbix.server.com'
+        API='http://zabbix.server.com/zabbix/api_jsonrpc.php'
+
+        # Authenticate with Zabbix API
+
+        authenticate() {
+                echo `curl -s -H  'Content-Type: application/json-rpc' -d &quot;{\&quot;jsonrpc\&quot;: \&quot;2.0\&quot;,\&quot;method\&quot;:\&quot;user.login\&quot;,\&quot;params\&quot;:{\&quot;user\&quot;:\&quot;&quot;${USER}&quot;\&quot;,\&quot;password\&quot;:\&quot;&quot;${PASS}&quot;\&quot;},\&quot;auth\&quot;: null,\&quot;id\&quot;:0}&quot; $API`
+        }
+
+        AUTH_TOKEN=`echo $(authenticate)|jq -r .result`
+
+        # Get This Host HostId:
+
+        gethostid() {
+               echo `curl -s -H 'Content-Type: application/json-rpc' -d &quot;{\&quot;jsonrpc\&quot;: \&quot;2.0\&quot;,\&quot;method\&quot;:\&quot;host.get\&quot;,\&quot;params\&quot;:{\&quot;output\&quot;:\&quot;extend\&quot;,\&quot;filter\&quot;:{\&quot;host\&quot;:[\&quot;&quot;$HOST_NAME&quot;\&quot;]}},\&quot;auth\&quot;:\&quot;&quot;${AUTH_TOKEN}&quot;\&quot;,\&quot;id\&quot;:0}&quot; $API`
+        }
+
+        HOST_ID=`echo $(gethostid)|jq -r .result[0].hostid`
+
+        # Remove Host
+
+        remove_host() {
+                echo `curl -s -H 'Content-Type: application/json-rpc' -d &quot;{\&quot;jsonrpc\&quot;: \&quot;2.0\&quot;,\&quot;method\&quot;:\&quot;host.delete\&quot;,\&quot;params\&quot;:[\&quot;&quot;${HOST_ID}&quot;\&quot;],\&quot;auth\&quot;:\&quot;&quot;${AUTH_TOKEN}&quot;\&quot;,\&quot;id\&quot;:0}&quot; $API`
+        }
+        RESPONSE=$(remove_host)
+        echo ${RESPONSE}
+}
+
+case $1 in
+
+        start)
+          start
+        ;;
+
+        stop)  
+          stop
+        ;;
+
+        restart)
+          stop
+          start
+        ;;
+
+esac    
+exit 0
+</code></pre>
 
 </div>
             <div class="footer">
@@ -129,6 +226,7 @@
     hljs.initHighlightingOnLoad();
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/puppet.min.js"></script>
 <script type="text/javascript">
     hljs.configure({languages: []});
     hljs.initHighlightingOnLoad();

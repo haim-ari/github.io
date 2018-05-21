@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>https://haim-ari.github.io/categories/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 27 Dec 2015 21:40:29 +0300</lastBuildDate>
+    
+	<atom:link href="https://haim-ari.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Update DNS Records with Dyn API</title>
+      <link>https://haim-ari.github.io/posts/update-dns-records-with-dyn-api/</link>
+      <pubDate>Sun, 27 Dec 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/update-dns-records-with-dyn-api/</guid>
+      <description>Here is a script that should run on an AutoScale instance when it launches and terminates in order to set and remove hostname by the instance-id. This script will: 1. Update the instance hostname (locally) by instance id 2. Create Dyn DNS records for public and private IPs, then publish zone 3. Update the Instance Name in AWS by Instance-id + domain 4. removes records from Dyn Dns when instance terminates.</description>
+    </item>
+    
+  </channel>
+</rss>

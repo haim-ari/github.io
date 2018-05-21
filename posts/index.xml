@@ -6,28 +6,10 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 May 2018 00:23:42 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 18 May 2018 23:25:18 +0300</lastBuildDate>
     
 	<atom:link href="https://haim-ari.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Automatically Launch AWS Instances With Dyn</title>
-      <link>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</link>
-      <pubDate>Mon, 21 May 2018 00:23:42 +0300</pubDate>
-      
-      <guid>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</guid>
-      <description>Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.</description>
-    </item>
-    
-    <item>
-      <title>Multi Haproxy</title>
-      <link>https://haim-ari.github.io/posts/multi-haproxy/</link>
-      <pubDate>Mon, 21 May 2018 00:12:25 +0300</pubDate>
-      
-      <guid>https://haim-ari.github.io/posts/multi-haproxy/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Syntax highlighting test page</title>
@@ -43,7 +25,26 @@
     </item>
     
     <item>
-      <title>ecs ci-cd with gitlab</title>
+      <title>Automatically Launch AWS Instances With Dyn</title>
+      <link>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</link>
+      <pubDate>Wed, 11 Apr 2018 00:23:42 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/automatically-launch-aws-instances-with-dyn/</guid>
+      <description>Dyn can provide a very simple solution for fail over. When you have a network outage in your primary Data Center you want to fail over as soon as possible. I use Dyn DNS “FailOver” feature to determine if a service is completely down on a site. you can use a simple http check and parse the response. Then the script launches X number of instances in AWS as soon as it detects the “Error” status.</description>
+    </item>
+    
+    <item>
+      <title>USING GITLAB AS YOUR PRODUCTION CD</title>
+      <link>https://haim-ari.github.io/posts/using-gitlab-as-your-production-cd/</link>
+      <pubDate>Sun, 25 Feb 2018 21:14:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/using-gitlab-as-your-production-cd/</guid>
+      <description>USING GITLAB AS YOUR PRODUCTION CI / CD SYSTEM ? YES, YOU SHOULD  Gitlab is a complete solution to unify your deployments and create a robust infrastructure tool, to manage your organization environments.
+ This is another take on a previous post i wrote last year, in which i needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies.</description>
+    </item>
+    
+    <item>
+      <title>CI / CD for ECS with gitlab pipelines</title>
       <link>https://haim-ari.github.io/posts/ecs-ci-cd-with-gitlab/</link>
       <pubDate>Sun, 01 Oct 2017 21:40:29 +0300</pubDate>
       
@@ -51,6 +52,58 @@
       <description>Here is a short guide on how to easily manage your CI/CD on ECS using Gitlab Pipeline &amp;amp; ecs-deploy
 a few weeks ago we needed to adopt a new product into the company, this product required building from scratch since it was relatively old and based on old technologies. So first i created an ECS-cluster
 I’ll focus on the CI/CD process, this means you already have: 1. ECS cluster running 2.</description>
+    </item>
+    
+    <item>
+      <title>Update DNS Records with Dyn API</title>
+      <link>https://haim-ari.github.io/posts/update-dns-records-with-dyn-api/</link>
+      <pubDate>Sun, 27 Dec 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/update-dns-records-with-dyn-api/</guid>
+      <description>Here is a script that should run on an AutoScale instance when it launches and terminates in order to set and remove hostname by the instance-id. This script will: 1. Update the instance hostname (locally) by instance id 2. Create Dyn DNS records for public and private IPs, then publish zone 3. Update the Instance Name in AWS by Instance-id + domain 4. removes records from Dyn Dns when instance terminates.</description>
+    </item>
+    
+    <item>
+      <title>Auto Scale your services with AWS Auto Scaling</title>
+      <link>https://haim-ari.github.io/posts/auto-scale-your-services-with-aws-auto-scaling/</link>
+      <pubDate>Tue, 29 Sep 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/auto-scale-your-services-with-aws-auto-scaling/</guid>
+      <description>Auto Scale
+ In this post i’ll describe how i use AWS Auto Scale in our environment.
+If you have not read about AWS Auto Scale Group yet, i recommend reading this document
+Now that you know what is Auto-Scaling and what are the features and benefits, lets go over it.
+In general what Auto-scale means is that instances will launch automatically by the policy you define, and will start serving by adding themselves to your Auto Scale Group ELB.</description>
+    </item>
+    
+    <item>
+      <title>Remove a host from zabbix using Bash script and Zabbix API</title>
+      <link>https://haim-ari.github.io/posts/remove-a-host-from-zabbix-using-bash-script-and-zabbix-api/</link>
+      <pubDate>Sun, 27 Sep 2015 22:44:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/remove-a-host-from-zabbix-using-bash-script-and-zabbix-api/</guid>
+      <description>If you are using AWS Autoscaling and zabbix as your monitoring server, Here is a simple way to remove a host before it is terminated. simply configure it to run at shutdown (/etc/rcd)
+#!/bin/bash # Remove-Zabbix Init script should run when an AWS instance goes down and remove itself from Zabbix Server # chkconfig: - 84 02 # description: Remove from zabbix # Source function library. . /etc/init.d/functions start() { /bin/touch /var/lock/subsys/Remove-Zabbix } stop() { /etc/init.</description>
+    </item>
+    
+    <item>
+      <title>Ansible (Tower) as your rolling deployment system</title>
+      <link>https://haim-ari.github.io/posts/ansible-tower-as-your-rolling-deployment-system/</link>
+      <pubDate>Fri, 25 Sep 2015 00:23:42 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/ansible-tower-as-your-rolling-deployment-system/</guid>
+      <description>Ansible is a great tool to manage your servers. The ability to launch commands at the same time on all or some of your agent-less hosts makes it very powerful. The open source part of Ansible allows you to run any command/task/playbook/role on your hosts by using commands. If you want to create a pipeline there is no such option… that is where Ansible Tower comes in.
+Ansible Tower allows you to easily use the same playbooks you created in a UI interface.</description>
+    </item>
+    
+    <item>
+      <title>MasterLess Puppet for AWS autoscaled instances</title>
+      <link>https://haim-ari.github.io/posts/masterless-puppet-for-aws-autoscaled-instances/</link>
+      <pubDate>Wed, 23 Sep 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/posts/masterless-puppet-for-aws-autoscaled-instances/</guid>
+      <description>#####Why i moved to MasterLess Puppet for our AWS autoscaled Groups ? In general this is because having multiple puppet masters is not so fun, especially if you are using Foreman. I don’t want to have another Puppet master in each site and having to sync all the facts between them.
+MasterLess puppet has one disadvantage: any host/instance needs to have all modules available on itself. Once you get use to that (it’s a one time configuration) the rest is easy and you are no longer depending on you Puppet master to apply modules.</description>
     </item>
     
   </channel>

@@ -13,7 +13,7 @@
     <item>
       <title>Devops</title>
       <link>https://haim-ari.github.io/categories/devops/</link>
-      <pubDate>Mon, 21 May 2018 00:12:25 +0300</pubDate>
+      <pubDate>Sun, 25 Feb 2018 21:14:29 +0300</pubDate>
       
       <guid>https://haim-ari.github.io/categories/devops/</guid>
       <description></description>
@@ -22,9 +22,18 @@
     <item>
       <title>Docker</title>
       <link>https://haim-ari.github.io/categories/docker/</link>
-      <pubDate>Sun, 01 Oct 2017 21:40:29 +0300</pubDate>
+      <pubDate>Sun, 25 Feb 2018 21:14:29 +0300</pubDate>
       
       <guid>https://haim-ari.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dyn</title>
+      <link>https://haim-ari.github.io/categories/dyn/</link>
+      <pubDate>Sun, 27 Dec 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/categories/dyn/</guid>
       <description></description>
     </item>
     
@@ -38,9 +47,27 @@
     </item>
     
     <item>
+      <title>Puppet</title>
+      <link>https://haim-ari.github.io/categories/puppet/</link>
+      <pubDate>Wed, 23 Sep 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/categories/puppet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://haim-ari.github.io/categories/python/</link>
+      <pubDate>Sun, 27 Dec 2015 21:40:29 +0300</pubDate>
+      
+      <guid>https://haim-ari.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Scripts</title>
       <link>https://haim-ari.github.io/categories/scripts/</link>
-      <pubDate>Mon, 21 May 2018 00:23:42 +0300</pubDate>
+      <pubDate>Wed, 11 Apr 2018 00:23:42 +0300</pubDate>
       
       <guid>https://haim-ari.github.io/categories/scripts/</guid>
       <description></description>

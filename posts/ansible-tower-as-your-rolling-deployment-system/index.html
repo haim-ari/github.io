@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+    
+    <title>Ansible (Tower) as your rolling deployment system &middot; </title>
+    <meta content="Ansible (Tower) as your rolling deployment system - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/print.css" media="print">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/poole.css">
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://haim-ari.github.io/css/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="https://haim-ari.github.io/"><h1 class="brand"></h1></a>
+			 <img src="/img/hugo.png" alt="Author Image" class="img-circle headshot center"> 
+			<p class="lead">
+				 Haim Ari 
+			</p>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/about/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/categories/devops/"> <span>DevOps</span></a>
+				</li>
+				<li>
+					<a href="/categories/python/"> <span>Python</span></a>
+				</li>
+				<li>
+					<a href="/categories/scripts/"> <span>Scripts</span></a>
+				</li>
+				<li>
+					<a href="/categories/docker/"> <span>Docker</span></a>
+				</li>
+				<li>
+					<a href="/categories/puppet/"> <span>Puppet</span></a>
+				</li>
+				<li>
+					<a href="/posts/"> <span>All Posts</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+        <p>
+		<section class="row text-center">
+	
+	<a href="https://twitter.com/arihaim"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/haim-ari"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/haimari"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:haimari1@gmail.com"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        </p>
+		<p class="copyright">&copy; 2018 Haim Ari.
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+	<div>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>Ansible (Tower) as your rolling deployment system</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> Sep 25, 2015
+      
+      
+        
+        
+            in
+            
+            
+                <a class="meta" href="/categories/devops">DEVOPS</a>
+                
+            
+        
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/ansible">ansible</a> 
+        
+            <a class="meta" href="/tags/python">python</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 6 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p>Ansible is a great tool to manage your servers.
+The ability to launch commands at the same time on all or some of your agent-less hosts makes it very powerful.
+The open source part of Ansible allows you to run any command/task/playbook/role on your hosts by using commands.
+If you want to create a pipeline there is no such option… that is where Ansible Tower comes in.</p>
+
+<p>Ansible Tower allows you to easily use the same playbooks you created in a UI interface.
+You can configure templates and Inventories and assign permissions for teams to use them within a UI interface.</p>
+
+<p><img src="/img/Screenshot-from-2015-09-25-212031.png" alt="Tower Ui" /></p>
+
+<p>With custom scripts you can sync your inventory (hosts list) before running a template so that if you have an autoscale group where instances are constantly changing
+It won’t be an issue for you.</p>
+
+<p>It only took a few days to set up a Production Deployment Tool for our RND, and it made build upgrade easier and most importantly faster.
+One click on a template will deploy builds on multiple servers at the same time. how many is configurable for each group.</p>
+
+<p>There are some flaws with tower but they are minor considering the advantage of not having tun run multiple actions over and over again in order to deploy build on
+All of your hosts</p>
+
+<p>Ansible Tower License costs money
+Tower UI is not running so fast, and requires “refresh” most of the time.
+If all host at the same iteration will fail the task will stop completely
+Other technical limitations (some of them are already planned to get fixed on next releases)
+Except from the above i personally find Tower to be an excellent tool, and mostly a time saver for managing your hosts.
+It is not puppet or Chef, but it can work with them, and do things that would take much more effort to do with them.</p>
+
+<p>In Our environment there are multiple systems that configure and monitor our servers.
+1. Foreman
+2. Puppet
+3. Git
+4. Zabbix</p>
+
+<p>The environment is distributed between an on premise servers and AWS Sites (AutoScale)
+I used tower and the above APIs to orchestrate a build deployment, and it was not so complicated.</p>
+
+<blockquote>
+<p>Each company has its own environment which could reside on different products.
+However i’ll show you what i did at the above environment, in order to get Tower to deploy builds with a single click.</p>
+</blockquote>
+
+<p>What i wanted to do is prepare a template which will run the same role on different groups of hosts by their location &amp; service.
+The inventory which the template runs on, will sync from a custom script that pulls the hosts list from zabbix-server each time a template runs.
+This will make sure that tower will not try to run on terminated AWS Instances and will also run on all newly created instances as well.</p>
+
+<p>In my case i use python to pull hosts in groups and return the Group Name + node list in json.
+* note that ansible runs the script with “- -list” parameter so include it in your script.</p>
+
+<p>Tower will provide you the zabbix sync script with installation. but it will return all of your monitored hosts</p>
+
+<p>I chose to sync from zabbix since it always includes the updated list of instances and physical hosts from our data center.</p>
+
+<p>I modified it as i needed.</p>
+
+<p>Go to “Setup” and configure your custom script under “Inventory Scripts”</p>
+
+<p>Now you can select it when you configure your “Host Group” under “Source”:</p>
+
+<p><img src="/img/Screenshot-from-2015-09-25-204354.png" alt="Tower Ui" /></p>
+
+<p>You can also use the already built in methods if they fir you.</p>
+
+<p>The instances in our AWS AutoScale Groups are configured with a “meta” string in their zabbix.conf agent file in order to automatically register to their Zabbix-proxy and become a part of their Zabbix group.</p>
+
+<p>This allows to create multiple “Inventories” easily and assign them to different “Templates”</p>
+
+<p>Now create the playbook that you want to run in order to deploy a build.</p>
+
+<blockquote>
+<p>As mentioned above different companies got different ways for doing the same thing.</p>
+</blockquote>
+
+<p>I’ll describe our flow:</p>
+
+<ul>
+<li>Builds run on jenkins</li>
+<li>Builds are uploaded to S3(AWS)</li>
+<li>The playbooks runs the following tasks in order to roll a build deployment:</li>
+</ul>
+
+<ol>
+<li>Verify and install dependencies if required on the target host.</li>
+<li>Get the current build that runs on the host.</li>
+<li>Compare and fail if already running the deployment build (There is a limitation in Ansible Tower and you can’t skip the host… the task has to fail)</li>
+<li>Put the host in maintenance in Zabbix.</li>
+<li>Unregister the host from AWS ELB.</li>
+<li>Wait for connection draining.</li>
+<li>Stop tomcat.</li>
+<li>Pull latest build from S3.</li>
+<li>Start tomcat.</li>
+<li>Test keepalive (retry every 2 seconds and wait 300 Secs until fail)</li>
+<li>Test checkinit.</li>
+<li>Test your service url and parse the response to verify it works as expected.</li>
+<li>Cleanup old builds on the host (keep the last few build for backup)</li>
+<li>Register to ELB.</li>
+<li>Remove zabbix maintenance.</li>
+</ol>
+
+<p>I recommend using “Role”, this way you can create different flows by including different tasks in it and use it as a template.</p>
+
+<p>Now create your “Project” and “Template” and select your relevant playbook.yml file.</p>
+
+<p>Create a “Team” in Tower and grant permission to the relevant templates. (for your R&amp;D team)</p>
+
+<p>Here is an example of a flow i use:</p>
+
+<ol>
+<li>Verify httplib2 is installed and install if missing (required for http checks)</li>
+<li>Check the current build on the server</li>
+<li>Compare the desired build to the current build (optional)</li>
+<li>Put the currently running host in maintenance at zabbix</li>
+<li>If the host is an AWS instance remove the instance from it&rsquo;s Autoscale Group Load balancer</li>
+<li>Change the keepalive check to &ldquo;STOP&rdquo; (so that it won&rsquo;t pass health check after restart)</li>
+<li>Wait for connection draining</li>
+<li>Deploy_latest_build (Pull from S3 and extracts it)</li>
+<li>Restart tomcat service</li>
+<li>Wait for open port</li>
+<li>Wait for all checkinit statuses to be in &ldquo;OK&rdquo; status (retry for 600 seconds)</li>
+<li>Check &ldquo;gethtmlad&rdquo; response and find a specific string in the response (meaning the response is valid)</li>
+<li>Change the keepalive status to &ldquo;OK&rdquo;</li>
+<li>Register the host to ELB (again, case this is a AWS instance)</li>
+<li>Cleanup old builds</li>
+<li>Remove zabbix maintenance for the host.</li>
+</ol>
+
+<h5 id="as-i-see-it-there-are-two-main-advantages-here-among-many-others">As i see it there are two main advantages here (among many others):</h5>
+
+<ol>
+<li>You configure this once. after that its just “change that, update here” work.</li>
+<li>Speed – you can run multiple templates at the same time and roll a deployment on all your regions at once.</li>
+</ol>
+
+<p>Ansible and Ansible Tower got great documentation.You can find it here:</p>
+
+<p>[Ansible](&ldquo;<a href="https://www.ansible.com/&quot;">https://www.ansible.com/&quot;</a>)</p>
+
+<p>[Ansible Tower](&ldquo;<a href="https://www.ansible.com/products/tower&quot;">https://www.ansible.com/products/tower&quot;</a>)</p>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/puppet.min.js"></script>
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>
