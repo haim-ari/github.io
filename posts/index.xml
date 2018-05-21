@@ -6,23 +6,10 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 May 2018 23:25:18 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 11 Apr 2018 00:23:42 +0300</lastBuildDate>
     
 	<atom:link href="https://haim-ari.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Syntax highlighting test page</title>
-      <link>https://haim-ari.github.io/posts/syntax_highlighting/</link>
-      <pubDate>Fri, 18 May 2018 23:25:18 +0300</pubDate>
-      
-      <guid>https://haim-ari.github.io/posts/syntax_highlighting/</guid>
-      <description>This is a test page i made in order to see if all syntax highlighting works ok:
- HTML Bash Json YAML Python   For YAML to work, i added the following to the configured template, in my case:
- hyde-hyde/layouts/partials/commenting.html  (HTML)
-&amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); &amp;lt;/script&amp;gt;  (BASH)
-#!/bin/bash ###### CONFIG ACCEPTED_HOSTS=&amp;quot;/root/.hag_accepted.conf&amp;quot; BE_VERBOSE=false if [ &amp;quot;$UID&amp;quot; -ne 0 ] then echo &amp;quot;Superuser rights required&amp;quot; exit 2 fi genApacheConf(){ echo -e &amp;quot;# Host ${HOME_DIR}$1/$2 :&amp;quot; }  (JSON)</description>
-    </item>
     
     <item>
       <title>Automatically Launch AWS Instances With Dyn</title>
